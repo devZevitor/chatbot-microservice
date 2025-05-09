@@ -1,34 +1,44 @@
 version: "3.1"
 
 intents:
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
+  - saudacao
+  - agendamento_servico # barba, corte de cabelo, luzes...
+  - agendamento_profissional #lucas, pedro, gabriela...
+  - agendamento_dia # amanhã, 14/04, daqui a 2 dias...
+  - agendamento_horario # 15:00, 19:00, 22:00...
+  - agradecimento #obrigado, você é demais...
+  - despedida #tchau, até mais
+entidades:
+  - dia_semana
+  - periodo_dia
+  - data_relativa
+  - data
+  - horario
+  - servico
+  - profissional
 
 responses:
-  utter_greet:
-  - text: "Hey! How are you?"
+  utter_saudacao:
+  - text: "Olá! o que posso fazer por você hoje?"
 
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
+  utter_agendamento_servico:
+  - text: "Entendido, qual profissional você deseja?"
 
-  utter_did_that_help:
-  - text: "Did that help you?"
+  utter_agendamento_profissional:
+  - text: "Ok, informe o dia para o agendamento"
 
-  utter_happy:
-  - text: "Great, carry on!"
+  utter_agendamento_dia:
+  - text: "Para finalizar me passe o horario escolhido"
 
-  utter_goodbye:
-  - text: "Bye"
+  utter_agendamento_horario:
+  - text: "Certo! Já enviei seus dados, em breve você recebera um email de confirmação"
 
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+  utter_agradecimento:
+  - text: "De nada! Espero ter ajudado"
 
+  utter_despedida:
+  - text: "Tchau, até a proxima!"
+  
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

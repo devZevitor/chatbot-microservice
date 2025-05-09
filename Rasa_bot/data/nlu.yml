@@ -1,91 +1,289 @@
 version: "3.1"
 
 nlu:
-- intent: greet
+- lookup: dia_semana
   examples: |
-    - hey
-    - hello
-    - hi
-    - hello there
-    - good morning
-    - good evening
-    - moin
-    - hey there
-    - let's go
-    - hey dude
-    - goodmorning
-    - goodevening
-    - good afternoon
+    - segunda
+    - terça
+    - quarta
+    - quinta
+    - sexta
+    - sabado
+    - sábado
+    - segunda-feira
+    - terça-feira
+    - quarta-feira
+    - quinta-feira
+    - sexta-feira
+    - seg
+    - ter
+    - qua
+    - qui
+    - sex
+    - sab
+    - sábado
 
-- intent: goodbye
+- lookup: periodo_dia
   examples: |
-    - cu
-    - good by
-    - cee you later
-    - good night
-    - bye
-    - goodbye
-    - have a nice day
-    - see you around
-    - bye bye
-    - see you later
+    - manhã
+    - de manhã
+    - tarde
+    - à tarde
 
-- intent: affirm
+- lookup: data_relativa
   examples: |
-    - yes
-    - y
-    - indeed
-    - of course
-    - that sounds good
-    - correct
+    - hoje
+    - amanhã
+    - depois de amanhã
+    - agora
+    - esta semana
+    - no final da semana
+    - no começo da semana
+    - no fim de semana
+    - ainda hoje
+    - até amanhã
+    - até o fim da semana
+    - daqui a dois dias
+    - daqui a três dias
+    - daqui a quatro dias
+    - daqui cinco dias
+    - daqui 6 dias
+    - daqui 7 dias
 
-- intent: deny
+- regex: data
   examples: |
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
+    - \d{1,2}[\/\-\.]\d{1,2}([\/\-\.]\d{2,4})?
 
-- intent: mood_great
+- regex: horario
   examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
+    - ([01]?\d|2[0-3]):[0-5]\d
+    - ([01]?\d|2[0-3])h
+    - ([01]?\d|2[0-3]) horas
 
-- intent: mood_unhappy
+- intent: saudacao
   examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
+    - oi
+    - eai
+    - e aí
+    - boa tarde
+    - boa noite
+    - bom dia
+    - como vai?
+    - oi, tudo bem?
+    - olá
+    - olá, tudo bem?
+    - fala
+    - fala aí
+    - oiê
+    - tudo certo?
+    - tudo bom?
+    - beleza?
+    - tranquilo?
+    - salve
+    - fala parceiro
+    - fala mano
+    - oiiii
+    - oi oi
+    - olá, bom dia
+    - olá, boa tarde
+    - olá, boa noite
+    - e aí, beleza?
+    - tudo joia?
+    - tudo tranquilo?
+    - como você está?
+    - opa, tudo bem?
 
-- intent: bot_challenge
+- intent: agendamento_servico
   examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
+    - quero agendar um [corte de cabelo](servico)
+    - preciso [cortar o cabelo](servico)
+    - gostaria de fazer um agendamento
+    - quero marcar um [horário para fazer luzes](servico)
+    - quero marcar [progressiva](servico)
+    - preciso [pintar meu cabelo](servico)
+    - quero marcar [hidratação](servico)
+    - gostaria de agendar uma [escova](servico)
+    - quero agendar um serviço de [manicure](servico)
+    - quero marcar uma [limpeza de pele](servico)
+    - quero agendar para [pintar o cabelo](servico)
+    - preciso marcar [sobrancelha](servico)
+    - gostaria de marcar [depilação](servico)
+    - quero fazer [luzes no cabelo](servico)
+    - quero [retocar minhas mechas](servico)
+    - quero marcar um [cronograma capilar](servico)
+    - preciso marcar [botox capilar](servico)
+    - quero marcar uma [selagem](servico)
+    - preciso agendar um [corte infantil](servico)
+    - quero marcar um [corte masculino](servico)
+    - quero fazer [barba](servico)
+    - quero agendar um [corte e barba](servico)
+    - quero marcar [corte feminino](servico)
+    - quero marcar [penteado para evento](servico)
+    - preciso agendar [maquiagem](servico)
+    - quero fazer [tranças](servico)
+    - quero marcar [alongamento de unhas](servico)
+    - preciso marcar [esmaltação](servico)
+    - quero agendar uma [reconstrução capilar](servico)
+    - quero marcar [banho de brilho](servico)
+
+
+- intent: agendamento_profissional
+  examples: |
+    - o [José](profissional) está livre?
+    - quero cortar com o [Bruno](profissional)
+    - tenho afinidade com o [Moisés](profissional)
+    - quero ser atendido pelo [Rafael](profissional)
+    - a [Amanda](profissional) tem horário?
+    - gostaria de agendar com a [Carolina](profissional)
+    - o [Pedro](profissional) pode me atender?
+    - queria marcar com a [Juliana](profissional)
+    - quero o corte com a [Luana](profissional)
+    - a [Isabela](profissional) está disponível?
+    - o [Fernando](profissional) pode me atender?
+    - tem vaga com o [Marcos](profissional)?
+    - quero agendar com o [Thiago](profissional)
+    - será que a [Fernanda](profissional) consegue me encaixar?
+    - preciso da [Renata](profissional)
+    - queria ser atendido pelo [Lucas](profissional)
+    - a [Paula](profissional) pode cortar meu cabelo?
+    - o [André](profissional) está atendendo hoje?
+    - preciso do horário da [Camila](profissional)
+    - tem vaga com o [João](profissional)?
+    - o [Gabriel](profissional) pode me atender?
+    - quero a maquiagem com a [Bruna](profissional)
+    - tem manicure com a [Vanessa](profissional)?
+    - queria depilação com a [Patrícia](profissional)
+    - gostaria de fazer sobrancelha com a [Bianca](profissional)
+    - a [Larissa](profissional) tem horário?
+    - quero corte com a [Karina](profissional)
+    - será que a [Gabriela](profissional) pode?
+    - o [Rodrigo](profissional) pode fazer a barba?
+    - preciso da agenda da [Alice](profissional)
+
+- intent: agendamento_dia
+  examples: |
+    - [amanhã](data_relativa) tem horário livre?
+    - posso agendar para [amanhã](data_relativa)?
+    - quero agendar para [terça-feira](dia_semana)
+    - [quarta-feira](dia_semana) é um bom dia
+    - tem horário na [quinta](dia_semana)?
+    - posso marcar na [segunda-feira](dia_semana)?
+    - tem horário [hoje](data_relativa)?
+    - quero um horário [hoje](data_relativa)
+    - consigo agendar para [hoje](data_relativa)?
+    - marca para [daqui a três dias](data_relativa)
+    - agendar para [daqui a dois dias](data_relativa)
+    - posso marcar para [depois de amanhã](data_relativa)?
+    - queria marcar no [próximo sábado](data_relativa)
+    - quero um horário para [semana que vem](data_relativa)
+    - tem horário na [próxima segunda](data_relativa)?
+    - queria agendar na [semana que vem](data_relativa)
+    - tem disponibilidade [essa semana](data_relativa)?
+    - tem horário [dia 15](data)?
+    - posso agendar para o [dia 20](data)?
+    - tem vaga no [feriado](data_relativa)?
+    - posso marcar no [fim de semana](data_relativa)?
+    - tem horário disponível no [próximo mês](data_relativa)?
+    - agendar para o [mês que vem](data_relativa)
+    - tem horário livre no [começo do mês](data_relativa)?
+    - posso agendar [daqui 5 dias](data_relativa)?
+
+- intent: agendamento_horario
+  examples: |
+    - às [13:00](horario)
+    - pode ser às 09:00 da manhã
+    - o primeiro horário disponível do dia
+    - gostaria que fosse no período da tarde
+    - pode marcar às 10h
+    - marca às 14:30
+    - quero às [16 horas](horario)
+    - será que tem às [18h](horario?
+    - agendar para às 11 da manhã
+    - prefiro no período da manhã
+    - quero o primeiro horário
+    - tem horário depois das 17?
+    - pode ser no começo da tarde
+    - quero às 12h
+    - será que dá às 15h?
+    - marca às 8 da manhã
+    - tem às 19h?
+    - o último horário do dia
+    - queria às 7h
+    - tem às 20 horas?
+    - pode marcar para às 13h30
+    - gostaria do horário das 17h
+    - pode marcar depois das 10h
+    - tem às 14h?
+    - pode ser por volta das 16h
+    - tem horário às 9h30?
+    - pode ser no final da tarde
+    - prefiro entre 10h e 11h
+    - pode agendar por volta das 15h
+    - tem vaga às 18h30?
+
+- intent: agradecimento
+  examples: |
+    - obrigado
+    - perfeito!
+    - muito obrigado!
+    - valeu
+    - vlw
+    - obg
+    - tmj
+    - valeu demais
+    - agradeço
+    - obrigada
+    - muitíssimo obrigado
+    - show
+    - gratidão
+    - muito grato
+    - brigadão
+    - valeu, viu?
+    - agradecido
+    - obrigada, de coração
+    - obrigado pela atenção
+    - muito obrigado mesmo
+    - muito obrigada
+    - brigado
+    - nossa, muito obrigada
+    - valeu, amigo
+    - obrigadão
+    - valeu mesmo
+    - show de bola
+    - sensacional
+    - top
+    - nota 10
+
+- intent: despedida
+  examples: |
+    - tenho que ir!
+    - até a próxima!
+    - tchau
+    - até mais
+    - até logo
+    - falou
+    - fui
+    - até amanhã
+    - adeus
+    - até breve
+    - nos vemos depois
+    - se cuida
+    - até semana que vem
+    - vou nessa
+    - até daqui a pouco
+    - vou embora
+    - preciso ir
+    - beijos
+    - abraço
+    - até
+    - até já
+    - até daqui uns dias
+    - falow
+    - fui nessa
+    - vou indo
+    - até um outro dia
+    - me despeço
+    - vou me despedindo
+    - até a próxima vez
+    - até mais tarde
+

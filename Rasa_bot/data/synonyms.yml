@@ -1,0 +1,101 @@
+version: "3.1"
+
+synonyms:
+  corte de cabelo:
+    - cortar o cabelo
+    - corte masculino
+    - corte feminino
+    - corte infantil
+    - corte
+
+  luzes:
+    - fazer luzes
+    - marcar luzes
+    - agendar luzes
+
+  progressiva:
+    - escova progressiva
+    - marcar progressiva
+    - fazer progressiva
+
+  pintura de cabelo:
+    - pintar o cabelo
+    - coloração
+    - tingir o cabelo
+
+  hidratação:
+    - hidratar o cabelo
+    - hidratação capilar
+
+  escova:
+    - fazer escova
+    - agendar escova
+
+  manicure:
+    - serviço de manicure
+    - agendar manicure
+
+  limpeza de pele:
+    - limpeza facial
+    - limpeza no rosto
+
+  sobrancelha:
+    - marcar sobrancelha
+    - design de sobrancelha
+    - fazer sobrancelha
+
+  depilação:
+    - depilar
+    - marcar depilação
+
+  mechas:
+    - retocar mechas
+    - fazer mechas
+    - renovar mechas
+
+  cronograma capilar:
+    - agendar cronograma capilar
+    - marcar cronograma
+
+  botox capilar:
+    - agendar botox
+    - fazer botox capilar
+
+  selagem:
+    - selagem térmica
+    - agendar selagem
+
+  barba:
+    - fazer barba
+    - aparar barba
+    - cortar barba
+
+  penteado:
+    - penteado para evento
+    - marcar penteado
+
+  maquiagem:
+    - make
+    - agendar maquiagem
+    - marcar make
+
+  tranças:
+    - fazer tranças
+    - trançar cabelo
+
+  alongamento de unhas:
+    - alongar unhas
+    - unhas de gel
+    - alongamento gel
+
+  esmaltação:
+    - passar esmalte
+    - pintar unhas
+
+  reconstrução capilar:
+    - fazer reconstrução
+    - reconstrução no cabelo
+
+  banho de brilho:
+    - brilho no cabelo
+    - agendar banho de brilho
