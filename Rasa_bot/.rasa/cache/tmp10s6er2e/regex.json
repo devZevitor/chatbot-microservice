@@ -1,0 +1,26 @@
+[
+  {
+    "name": "data",
+    "pattern": "\\d{1,2}[\\/\\-\\.]\\d{1,2}([\\/\\-\\.]\\d{2,4})?"
+  },
+  {
+    "name": "horario",
+    "pattern": "([01]?\\d|2[0-3]) horas"
+  },
+  {
+    "name": "horario",
+    "pattern": "([01]?\\d|2[0-3]):[0-5]\\d"
+  },
+  {
+    "name": "horario",
+    "pattern": "([01]?\\d|2[0-3])h"
+  },
+  {
+    "name": "dia_semana",
+    "pattern": "(\\bsegunda\\b|\\bterça\\b|\\bquarta\\b|\\bquinta\\b|\\bsexta\\b|\\bsabado\\b|\\bsábado\\b|\\bseg\\b|\\bter\\b|\\bqua\\b|\\bqui\\b|\\bsex\\b|\\bsab\\b)"
+  },
+  {
+    "name": "data_relativa",
+    "pattern": "(\\bhoje\\b|\\bamanhã\\b|\\bdepois\\ de\\ amanhã\\b|\\bagora\\b|\\besta\\ semana\\b|\\bno\\ final\\ da\\ semana\\b|\\bno\\ começo\\ da\\ semana\\b|\\bno\\ fim\\ de\\ semana\\b|\\bainda\\ hoje\\b|\\baté\\ amanhã\\b|\\baté\\ o\\ fim\\ da\\ semana\\b|\\bdaqui\\ a\\ dois\\ dias\\b|\\bdaqui\\ a\\ três\\ dias\\b|\\bdaqui\\ a\\ quatro\\ dias\\b|\\bdaqui\\ cinco\\ dias\\b|\\bdaqui\\ 6\\ dias\\b|\\bdaqui\\ 7\\ dias\\b)"
+  }
+]

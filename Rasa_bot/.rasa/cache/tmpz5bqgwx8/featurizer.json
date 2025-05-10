@@ -1,0 +1,65 @@
+{
+  "type": "MaxHistoryTrackerFeaturizer",
+  "state_featurizer": {
+    "action_texts": [],
+    "entity_tag_specs": [],
+    "feature_states": {
+      "intent": {
+        "agendamento_dia": 0,
+        "agendamento_horario": 1,
+        "agendamento_profissional": 2,
+        "agendamento_servico": 3,
+        "agradecimento": 4,
+        "back": 5,
+        "despedida": 6,
+        "nlu_fallback": 7,
+        "out_of_scope": 8,
+        "restart": 9,
+        "saudacao": 10,
+        "session_start": 11
+      },
+      "action_name": {
+        "action_listen": 0,
+        "action_restart": 1,
+        "action_session_start": 2,
+        "action_default_fallback": 3,
+        "action_deactivate_loop": 4,
+        "action_revert_fallback_events": 5,
+        "action_default_ask_affirmation": 6,
+        "action_default_ask_rephrase": 7,
+        "action_two_stage_fallback": 8,
+        "action_unlikely_intent": 9,
+        "action_back": 10,
+        "...": 11,
+        "action_extract_slots": 12,
+        "utter_agendamento_dia": 13,
+        "utter_agendamento_horario": 14,
+        "utter_agendamento_profissional": 15,
+        "utter_agendamento_servico": 16,
+        "utter_agradecimento": 17,
+        "utter_despedida": 18,
+        "utter_saudacao": 19
+      },
+      "entities": {
+        "data": 0,
+        "data_relativa": 1,
+        "dia_semana": 2,
+        "horario": 3,
+        "periodo_dia": 4,
+        "profissional": 5,
+        "servico": 6
+      },
+      "slots": {
+        "periodo_dia_0": 0,
+        "data_relativa_0": 1,
+        "data_0": 2,
+        "horario_0": 3,
+        "servico_0": 4,
+        "profissional_0": 5
+      },
+      "active_loop": {}
+    }
+  },
+  "remove_duplicates": true,
+  "max_history": 5
+}

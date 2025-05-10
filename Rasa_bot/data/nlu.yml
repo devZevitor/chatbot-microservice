@@ -10,25 +10,34 @@ nlu:
     - sexta
     - sabado
     - sábado
-    - segunda-feira
-    - terça-feira
-    - quarta-feira
-    - quinta-feira
-    - sexta-feira
     - seg
     - ter
     - qua
     - qui
     - sex
     - sab
-    - sábado
 
 - lookup: periodo_dia
   examples: |
     - manhã
     - de manhã
+    - pela manhã
+    - no período da manhã
+    - durante a manhã
     - tarde
     - à tarde
+    - de tarde
+    - no período da tarde
+    - durante a tarde
+    - no comecinho da tarde
+    - no começo da tarde
+    - fim da tarde
+    - no fim da tarde
+    - período da manhã
+    - período da tarde
+    - turno da manhã
+    - turno da tarde
+
 
 - lookup: data_relativa
   examples: |
@@ -52,13 +61,13 @@ nlu:
 
 - regex: data
   examples: |
-    - \d{1,2}[\/\-\.]\d{1,2}([\/\-\.]\d{2,4})?
+    - \b(0?[1-9]|[12][0-9]|3[01])[/\-\.](0?[1-9]|1[0-2])([/\-\.](\d{2}|\d{4}))?\b
 
 - regex: horario
   examples: |
-    - ([01]?\d|2[0-3]):[0-5]\d
-    - ([01]?\d|2[0-3])h
-    - ([01]?\d|2[0-3]) horas
+    - \b([01]?[0-9]|2[0-3]):[0-5][0-9]\b
+    - \b([01]?[0-9]|2[0-3])h\b
+    - \b([01]?[0-9]|2[0-3]) horas\b
 
 - intent: saudacao
   examples: |
@@ -125,49 +134,70 @@ nlu:
     - preciso marcar [esmaltação](servico)
     - quero agendar uma [reconstrução capilar](servico)
     - quero marcar [banho de brilho](servico)
-
+    - quero agendar um [corte de cabelo](servico) com o [Lucas](profissional)
+    - quero agendar um [corte de cabelo](servico) [amanhã](data_relativa)
+    - quero agendar um [corte de cabelo](servico) [de manhã](periodo_dia)
+    - quero agendar um [corte de cabelo](servico) [na segunda-feira](dia_semana)
+    - quero agendar um [corte de cabelo](servico) [no dia 15](data)
+    - quero agendar um [corte de cabelo](servico) com o [Lucas](profissional) [na próxima terça](data_relativa)
+    - quero agendar um [corte de cabelo](servico) com o [Lucas](profissional) [à tarde](periodo_dia)
+    - quero agendar um [corte de cabelo](servico) com o [Lucas](profissional) às 14h
+    - quero agendar um [corte de cabelo](servico) com o [Lucas](profissional) [amanhã](data_relativa) às 14h
+    - gostaria de fazer [hidratação](servico) com a [Juliana](profissional) [sábado](dia_semana) de manhã
+    - preciso marcar [barba](servico) com o [Fernando](profissional) às 10h
+    - quero fazer [selagem](servico) com a [Patrícia](profissional) [semana que vem](data_relativa)
 
 - intent: agendamento_profissional
   examples: |
-    - o [José](profissional) está livre?
+    - [Mateus](profissional)
+    - [Jorge](profissional)
+    - [Miguel](profissional)
+    - [Ana](profissional)
+    - Sim, com o [Miguel](profissional)
+    - A [Ana](profissional)
+    - Pode ser o [Jorge](profissional)
+    - Prefiro o [Mateus](profissional)
+    - O [Lucas](profissional), por favor
+    - Com a [Fernanda](profissional)
+    - quero cortar com o [Jorge](profissional)
     - quero cortar com o [Bruno](profissional)
-    - tenho afinidade com o [Moisés](profissional)
     - quero ser atendido pelo [Rafael](profissional)
-    - a [Amanda](profissional) tem horário?
-    - gostaria de agendar com a [Carolina](profissional)
-    - o [Pedro](profissional) pode me atender?
-    - queria marcar com a [Juliana](profissional)
+    - tenho afinidade com o [Moisés](profissional)
     - quero o corte com a [Luana](profissional)
+    - quero agendar com o [Thiago](profissional)
+    - preciso da [Renata](profissional)
+    - queria ser atendido pelo [Lucas](profissional)
+    - quero a maquiagem com a [Bruna](profissional)
+    - queria depilação com a [Patrícia](profissional)
+    - quero corte com a [Karina](profissional)
+    - o [José](profissional) está livre?
+    - a [Amanda](profissional) tem horário?
+    - o [Pedro](profissional) pode me atender?
     - a [Isabela](profissional) está disponível?
     - o [Fernando](profissional) pode me atender?
     - tem vaga com o [Marcos](profissional)?
-    - quero agendar com o [Thiago](profissional)
     - será que a [Fernanda](profissional) consegue me encaixar?
-    - preciso da [Renata](profissional)
-    - queria ser atendido pelo [Lucas](profissional)
     - a [Paula](profissional) pode cortar meu cabelo?
     - o [André](profissional) está atendendo hoje?
-    - preciso do horário da [Camila](profissional)
     - tem vaga com o [João](profissional)?
     - o [Gabriel](profissional) pode me atender?
-    - quero a maquiagem com a [Bruna](profissional)
     - tem manicure com a [Vanessa](profissional)?
-    - queria depilação com a [Patrícia](profissional)
     - gostaria de fazer sobrancelha com a [Bianca](profissional)
     - a [Larissa](profissional) tem horário?
-    - quero corte com a [Karina](profissional)
     - será que a [Gabriela](profissional) pode?
     - o [Rodrigo](profissional) pode fazer a barba?
     - preciso da agenda da [Alice](profissional)
+    - gostaria de agendar com a [Carolina](profissional)
+    - queria marcar com a [Juliana](profissional)
 
 - intent: agendamento_dia
   examples: |
     - [amanhã](data_relativa) tem horário livre?
     - posso agendar para [amanhã](data_relativa)?
-    - quero agendar para [terça-feira](dia_semana)
-    - [quarta-feira](dia_semana) é um bom dia
+    - quero agendar para [terça](dia_semana)
+    - [quarta](dia_semana) é um bom dia
     - tem horário na [quinta](dia_semana)?
-    - posso marcar na [segunda-feira](dia_semana)?
+    - posso marcar na [segunda](dia_semana)?
     - tem horário [hoje](data_relativa)?
     - quero um horário [hoje](data_relativa)
     - consigo agendar para [hoje](data_relativa)?
@@ -263,27 +293,21 @@ nlu:
     - até logo
     - falou
     - fui
-    - até amanhã
     - adeus
     - até breve
     - nos vemos depois
     - se cuida
-    - até semana que vem
     - vou nessa
-    - até daqui a pouco
     - vou embora
     - preciso ir
     - beijos
     - abraço
     - até
     - até já
-    - até daqui uns dias
     - falow
     - fui nessa
     - vou indo
-    - até um outro dia
     - me despeço
     - vou me despedindo
     - até a próxima vez
-    - até mais tarde
 

@@ -16,3 +16,18 @@ rules:
   steps:
   - intent: despedida
   - action: utter_despedida
+
+- rule: Iniciar agendamento
+  steps:
+    - intent: agendamento_servico
+    - action: agendamento_form
+    - active_loop: agendamento_form
+
+- rule: Encerra agendamento
+  condition:
+    - active_loop: agendamento_form
+  steps:
+    - action: agendamento_form
+    - active_loop: null
+    - action: utter_submit
+

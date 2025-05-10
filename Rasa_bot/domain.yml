@@ -2,13 +2,14 @@ version: "3.1"
 
 intents:
   - saudacao
-  - agendamento_servico # barba, corte de cabelo, luzes...
-  - agendamento_profissional #lucas, pedro, gabriela...
-  - agendamento_dia # amanhã, 14/04, daqui a 2 dias...
-  - agendamento_horario # 15:00, 19:00, 22:00...
-  - agradecimento #obrigado, você é demais...
-  - despedida #tchau, até mais
-entidades:
+  - agendamento_servico 
+  - agendamento_profissional 
+  - agendamento_dia 
+  - agendamento_horario 
+  - agradecimento
+  - despedida 
+
+entities:
   - dia_semana
   - periodo_dia
   - data_relativa
@@ -17,27 +18,88 @@ entidades:
   - servico
   - profissional
 
+slots:
+  periodo_dia:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: periodo_dia  
+        
+  data:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: data
+    - type: from_entity
+      entity: dia_semana
+    - type: from_entity
+      entity: data_relativa
+
+  horario:
+    type: text
+    influence_conversation: false 
+    mappings:
+    - type: from_entity
+      entity: horario
+
+  servico:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: servico
+      
+  profissional:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: profissional
+
+forms:
+  agendamento_form:
+    required_slots:
+      - servico
+      - profissional
+      - data
+      - horario
+
 responses:
+
   utter_saudacao:
-  - text: "Olá! o que posso fazer por você hoje?"
+    - text: "Olá! o que posso fazer por você hoje?"
 
   utter_agendamento_servico:
-  - text: "Entendido, qual profissional você deseja?"
+    - text: "Entendido, qual profissional você deseja?"
+
+  utter_ask_servico:
+    - text: "Qual serviço você deseja agendar?"
 
   utter_agendamento_profissional:
-  - text: "Ok, informe o dia para o agendamento"
+    - text: "Ok, informe o dia para o agendamento"
+  
+  utter_ask_profissional:
+    - text: "Qual profissional você prefere?"
 
   utter_agendamento_dia:
-  - text: "Para finalizar me passe o horario escolhido"
+    - text: "Para finalizar me passe o horario escolhido"
 
-  utter_agendamento_horario:
-  - text: "Certo! Já enviei seus dados, em breve você recebera um email de confirmação"
+  utter_ask_data:
+    - text: "Para qual dia deseja marcar o atendimento?"
+  
+  utter_ask_horario:
+    - text: "Qual horário você prefere?"
+
+  utter_submit:
+    - text: "Certo! {servico} - {data} - {periodo_dia} - {profissional} - {horario}. Em breve você receberá um e-mail de confirmação."
 
   utter_agradecimento:
-  - text: "De nada! Espero ter ajudado"
+    - text: "De nada! Espero ter ajudado"
 
   utter_despedida:
-  - text: "Tchau, até a proxima!"
+    - text: "Tchau, até a proxima!"
   
 session_config:
   session_expiration_time: 60
