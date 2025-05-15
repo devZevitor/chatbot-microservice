@@ -8,6 +8,8 @@ intents:
   - agendamento_horario 
   - agradecimento
   - despedida 
+  - afirmação
+  - negação
 
 entities:
   - dia_semana
@@ -58,16 +60,28 @@ slots:
     - type: from_entity
       entity: profissional
 
+  tem_preferencia_profissional:
+    type: bool
+    influence_conversation: false
+    mappings:
+      - type: from_intent
+        intent: afirmação
+        value: true
+      - type: from_intent
+        intent: negação
+        value: false
+
 forms:
   agendamento_form:
     required_slots:
       - servico
+      - tem_preferencia_profissional
       - profissional
       - data
       - horario
+        
 
 responses:
-
   utter_saudacao:
     - text: "Olá! o que posso fazer por você hoje?"
 
@@ -79,6 +93,9 @@ responses:
 
   utter_agendamento_profissional:
     - text: "Ok, informe o dia para o agendamento"
+
+  utter_ask_tem_preferencia_profissional:
+  - text: "Você tem preferência por algum profissional? (sim ou não)"
   
   utter_ask_profissional:
     - text: "Qual profissional você prefere?"
@@ -100,6 +117,15 @@ responses:
 
   utter_despedida:
     - text: "Tchau, até a proxima!"
+
+  utter_reformular:
+    - text: "Me desculpe, não entendi o que você disse. Você poderia reformular a sua frase?"
+
+  utter_default:
+    - text: "Desculpe não entendi, Você pode reformular?"
+
+actions:
+- validate_agendamento_form
   
 session_config:
   session_expiration_time: 60

@@ -23,11 +23,28 @@ rules:
     - action: agendamento_form
     - active_loop: agendamento_form
 
-- rule: Encerra agendamento
+- rule: Encerrar agendamento
   condition:
     - active_loop: agendamento_form
+    - slot_was_set:
+      - data
+      - horario
+      - tem_preferencia_profissional
+      - profissional
   steps:
     - action: agendamento_form
     - active_loop: null
     - action: utter_submit
 
+- rule: Reformular a ultima frase
+  steps:
+  - intent: nlu_fallback
+  - action: utter_reformular
+
+# - rule: Listar profissionais se não houver preferência
+#   condition:
+#     - active_loop: agendamento_form
+#   steps:
+#     - slot_was_set:
+#         - tem_preferencia_profissional: false
+#     - action: action_listar_profissionais
